@@ -56,7 +56,7 @@ namespace std_msgs
 			Object.SetNumberField(TEXT("data"), Data);
 
 			TSharedRef< TJsonWriter<> > Writer = TJsonWriterFactory<>::Create(&OutputString);
-			FJsonSerializer::Serialize(Object, Writer);
+			FJsonSerializer::Serialize(ToJsonObject().ToSharedRef(), Writer); //compiler generates C2440
 			return OutputString;
 		}
 	};
